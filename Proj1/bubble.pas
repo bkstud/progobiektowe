@@ -12,7 +12,7 @@ begin
   randomize();
   for i := 0 to size - 1 do
   begin
-	  // Random returns a random number larger or equal to 0 and strictly less than L. 
+    // Random returns a random number larger or equal to 0 and strictly less than L. 
     arr[i] := random(max_val + 1);
   end; 
   genarray := arr;
