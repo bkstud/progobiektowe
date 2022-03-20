@@ -9,7 +9,6 @@ var
   i: integer;
 begin
   setLength(arr, size);
-  // writeln(Length(arr));
   randomize();
   for i := 0 to size - 1 do
   begin
