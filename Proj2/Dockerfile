@@ -1,6 +1,7 @@
-FROM debian:latest
+FROM ubuntu:latest
 
 RUN apt update
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata
 RUN apt upgrade -y
 RUN apt install -y ca-certificates php7.4 php7.4-xml unzip vim php7.4-sqlite3 php7.4-curl sqlite3 sqlitebrowser
 
@@ -14,3 +15,7 @@ php -r "if (hash_file('sha384', 'composer-setup.php') === '906a84df04cea2aa72f40
 php composer-setup.php && \
 php -r "unlink('composer-setup.php');" && \
 mv composer.phar /usr/local/bin/composer
+
+RUN echo 'extension=pdo.so \n\
+extension=pdo_sqlite \n\
+extension=sqlite3' >> /etc/php/7.4/cli/php.ini
