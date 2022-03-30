@@ -7,7 +7,7 @@ RUN apt install -y ca-certificates php7.4 php7.4-xml unzip vim php7.4-sqlite3 ph
 
 RUN echo 'deb [trusted=yes] https://repo.symfony.com/apt/ /' | tee /etc/apt/sources.list.d/symfony-cli.list
 RUN apt update
-RUN apt install -y symfony-cli
+RUN apt install -y symfony-cli npm
 
 # install composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
