@@ -1,2 +1,3 @@
 Added 3 models (entity) and created crud for them. <br>
-Couldn't figure out how to configure command for sqlite database due to some packages issues on both kprzystalski/projobj2:latest image and the one I built.
+For database to work needed to add some extensions in php.ini <br>
+Because of that I built my own image that should work.
