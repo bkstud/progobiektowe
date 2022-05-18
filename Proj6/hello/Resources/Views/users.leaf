@@ -1,0 +1,22 @@
+<style type="text/css">
+form, table {
+     display:inline;
+     margin:0px;
+     padding:0px;
+}
+</style>
+
+Users:
+<ul>
+#for(user in users):
+    <li>#(user.firstname) #(user.surname)  
+     <button onclick="window.location.href='/users/#(user.id)';" type="button">Edit</button>
+    <form>
+        <button type="submit" 
+                formaction="/users/delete/#(user.id)"
+                formmethod="post">Delete</button>
+    </form>
+    </li>
+
+#endfor
+</ul>
