@@ -14,7 +14,9 @@ func usersController(_ app: Application) throws {
     // POST /users create new user
     users.post { req throws -> Response in
         let user = try req.content.decode(User.self)
-        user.create(on: req.db).map { user }
+        if user.firstname != "" && user.surname != "" {
+            user.create(on: req.db).map { user }
+        }
         return req.redirect(to: "/users")
     }
     

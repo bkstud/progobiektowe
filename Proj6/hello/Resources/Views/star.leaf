@@ -1,0 +1,33 @@
+<style type="text/css">
+form, table {
+     display:inline;
+     margin:0px;
+     padding:0px;
+}
+</style>
+
+Stars:
+<ul>
+<li>Name Galaxy_name</li> 
+#for(star in stars):
+    <li>#(star.name) #(star.name)  
+     <button onclick="window.location.href='/stars/#(star.id)';" type="button">Edit</button>
+    <form>
+        <button type="submit" 
+                formaction="/stars/delete/#(star.id)"
+                formmethod="post">Delete</button>
+    </form>
+    </li>
+#endfor
+</ul>
+Add star:<br>
+ <form action="/stars" method="post">
+  <label for="fname">Name:</label>
+  <input type="text" id="name" name="name">
+  <label for="lname">star name:</label>
+  <input type="text" id="galaxyName" name="galaxyName"><br>
+  <input type="submit" value="Submit">
+</form> 
+<br><br>
+<a href="/galaxies">Galaxies</a><br>
+<a href="/">Main Page</a><br><br>

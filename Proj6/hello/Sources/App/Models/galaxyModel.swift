@@ -29,6 +29,7 @@ struct CreateGalaxy: AsyncMigration {
         try await database.schema("galaxies")
             .id()
             .field("name", .string)
+            .unique(on: "name")
             .create()
     }
 

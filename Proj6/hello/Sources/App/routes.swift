@@ -1,15 +1,14 @@
 import Vapor
+import Leaf
 
 func routes(_ app: Application) throws {
     
     try usersController(app)
+    try galaxiesController(app)
+    try starsController(app)
 
-    app.get { req in
-        return "It works!"
+    app.get { req async throws -> View in
+        return try await req.view.render("mainPage")
     }
 
-    app.get("hello") { req -> EventLoopFuture<View> in
-        return req.view.render("hello", ["name": "Leaf"])
-        // return "Hello, world!"
-    }
 }

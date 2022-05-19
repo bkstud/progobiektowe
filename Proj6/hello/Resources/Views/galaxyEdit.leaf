@@ -1,0 +1,15 @@
+<style type="text/css">
+form, table {
+     display:inline;
+     margin:0px;
+     padding:0px;
+}
+</style>
+
+Edit galaxy: 
+<br>
+ <form action="/galaxies/#(galaxy.id)" method="post">
+  <label for="fname">New Galaxy name:</label>
+  <input type="text" id="name" name="name" value="#(galaxy.name)">
+  <input type="submit" value="Submit">
+</form> 

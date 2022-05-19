@@ -1,7 +1,7 @@
 import Fluent
 import Vapor
 
-final class Star: Model, Content {
+final class Star: Model {
     // Name of the table or collection.
     static let schema = "stars"
 
@@ -34,6 +34,7 @@ struct CreateStar: AsyncMigration {
         try await database.schema("stars")
             .id()
             .field("name", .string)
+            .unique(on: "name")
             .field("galaxy_id", .uuid)
             .create()
     }

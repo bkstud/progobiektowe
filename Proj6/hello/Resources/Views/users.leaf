@@ -28,3 +28,5 @@ Add user:<br>
   <input type="text" id="surname" name="surname"><br>
   <input type="submit" value="Submit">
 </form> 
+<br><br>
+<a href="/">Main Page</a><br>

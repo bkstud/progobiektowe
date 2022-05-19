@@ -1,0 +1,31 @@
+<style type="text/css">
+form, table {
+     display:inline;
+     margin:0px;
+     padding:0px;
+}
+</style>
+
+Galaxies:
+<ul>
+<li>Name</li> 
+#for(galaxy in galaxies):
+    <li>#(galaxy.name)
+     <button onclick="window.location.href='/galaxies/#(galaxy.id)';" type="button">Edit</button>
+    <form>
+        <button type="submit" 
+                formaction="/galaxies/delete/#(galaxy.id)"
+                formmethod="post">Delete</button>
+    </form>
+    </li>
+#endfor
+</ul>
+Add galaxy:<br>
+ <form action="/galaxies" method="post">
+  <label for="name">Galaxy name:</label>
+  <input type="text" id="name" name="name">
+  <input type="submit" value="Submit">
+</form> 
+<br><br>
+<a href="/stars">Stars</a><br>
+<a href="/">Main Page</a><br>
