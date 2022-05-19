@@ -8,6 +8,7 @@ form, table {
 
 Users:
 <ul>
+<li>Name Surname</li> 
 #for(user in users):
     <li>#(user.firstname) #(user.surname)  
      <button onclick="window.location.href='/users/#(user.id)';" type="button">Edit</button>
@@ -17,6 +18,13 @@ Users:
                 formmethod="post">Delete</button>
     </form>
     </li>
-
 #endfor
 </ul>
+Add user:<br>
+ <form action="/users" method="post">
+  <label for="fname">Firstname:</label>
+  <input type="text" id="firstname" name="firstname">
+  <label for="lname">Surname:</label>
+  <input type="text" id="surname" name="surname"><br>
+  <input type="submit" value="Submit">
+</form> 

@@ -11,11 +11,11 @@ final class User: Model, Content {
 
     // The User's firstname.
     @Field(key: "firstname")
-    var firstname: String
+    var firstname: String?
     
     // The User's surname.
     @Field(key: "surname")
-    var surname: String
+    var surname: String?
 
     // Creates a new, empty User.
     init() { }
