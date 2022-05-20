@@ -11,7 +11,7 @@ Edit star:
  <form action="/stars/#(star.id)" method="post">
   <label for="fname">New name:</label>
   <input type="text" id="name" name="name" value="#(star.name)">
-  <label for="lname">New :</label>
+  <label for="lname">New galaxy name:</label>
   <input type="text" id="galaxyName" name="galaxyName" value="#(star.galaxy.name)"><br>
   <input type="submit" value="Submit">
 </form> 

@@ -12,10 +12,14 @@ func galaxiesController(_ app: Application) throws {
     }
 
     // POST /galaxies create new galaxy
-    galaxies.post { req throws -> Response in
+    galaxies.post { req async throws -> Response in
         let galaxy = try req.content.decode(Galaxy.self)
         if galaxy.name != "" {
-            galaxy.create(on: req.db).map { galaxy }
+            if try await Galaxy.query(on: req.db)
+            .filter(\.$name == galaxy.name)
+            .first() == nil {
+                galaxy.create(on: req.db).map { galaxy }
+            }
         }
         return req.redirect(to: "/galaxies")
     }
@@ -46,8 +50,9 @@ func galaxiesController(_ app: Application) throws {
         }
         
         galaxy.name = patch.name
-
-        try await galaxy.update(on: req.db)
+        do {
+            try await galaxy.update(on: req.db)
+        } catch {}
         return req.redirect(to: "/galaxies")
     }
 

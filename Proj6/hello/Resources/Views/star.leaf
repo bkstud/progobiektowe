@@ -8,9 +8,9 @@ form, table {
 
 Stars:
 <ul>
-<li>Name Galaxy_name</li> 
+<li>Name - Galaxy_name</li> 
 #for(star in stars):
-    <li>#(star.name) #(star.name)  
+    <li>#(star.name) - #(star.galaxy.name)  
      <button onclick="window.location.href='/stars/#(star.id)';" type="button">Edit</button>
     <form>
         <button type="submit" 
@@ -24,7 +24,7 @@ Add star:<br>
  <form action="/stars" method="post">
   <label for="fname">Name:</label>
   <input type="text" id="name" name="name">
-  <label for="lname">star name:</label>
+  <label for="lname">Galaxy name:</label>
   <input type="text" id="galaxyName" name="galaxyName"><br>
   <input type="submit" value="Submit">
 </form> 
